@@ -337,5 +337,6 @@ pyvenv.cfg
 pip-selfcheck.json
 anty_autoreg_nekr.pub
 anty_autoreg_nekr
+alembic.ini
 
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all,macos,linux,git,venv,python
