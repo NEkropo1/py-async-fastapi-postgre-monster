@@ -1,4 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
 
 import models
 
@@ -19,14 +20,18 @@ async def get_json(db: AsyncSession, json_id: int) -> models.JSONFile:
 
 
 async def get_next_unlocked_json(db: AsyncSession):
-    result = await db.execute(
-        db.query(models.JSONFile)
+    stmt = (
+        select(models.JSONFile)
         .order_by(models.JSONFile.id)
         .with_for_update(skip_locked=True)
         .limit(1)
     )
+
+    result = await db.execute(stmt)
     json_file = result.scalars().first()
+
     if json_file:
         await db.delete(json_file)
         await db.commit()
+
     return json_file

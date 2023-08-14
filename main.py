@@ -10,12 +10,11 @@ from google.cloud.firestore import ArrayUnion
 import firebase_admin
 import crud
 import models
-from db import engine
+from db.engine import AsyncSessionLocal
 
 load_dotenv()
 app = FastAPI()
 
-models.Base.metadata.create_all(bind=engine.engine)
 API_KEY = os.getenv("API_KEY")
 
 CURRENT_FILE_LOCATION = os.path.dirname(os.path.abspath(__file__))
@@ -25,7 +24,7 @@ firestore_db = firestore.client()
 
 
 async def get_db() -> AsyncSession:
-    async with engine.AsyncSessionLocal() as session:
+    async with AsyncSessionLocal() as session:
         yield session
 
 

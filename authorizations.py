@@ -4,14 +4,15 @@ import requests
 from json import JSONDecodeError
 
 from firebase_admin import credentials
-
 from google.cloud.firestore_v1 import DocumentReference
 from account.account_generator import Account
 from bots.notify_bot import send_message_attempts
 from serializers import ConstraintsSerializer
+from dotenv import load_dotenv
 
 CURRENT_FILE_LOCATION = os.path.dirname(os.path.abspath(__file__))
 cred = credentials.Certificate(os.path.join(CURRENT_FILE_LOCATION, "antycode-3f8e262dd0a7.json"))
+load_dotenv()
 
 
 def create_account(
@@ -36,8 +37,12 @@ def create_account(
 
 def push_account_data_to_api(account_data):
     try:
-        response = requests.post("http://127.0.0.1:8000/store_json/", json=account_data)
+        api_key = os.getenv("API_KEY")
+        headers = {"api-key": api_key}
+        response = requests.post("http://127.0.0.1:8000/store_json/", headers=headers, json={"data": account_data})
         response.raise_for_status()
+    except requests.HTTPError:
+        print(f"Failed with response: {response.json()}")
     except Exception as e:
         print(f"Failed to push account data to API. Error: {e}")
 
