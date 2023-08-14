@@ -2,6 +2,7 @@ import os
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, Depends, Header, HTTPException
+from fastapi.responses import Response
 from firebase_admin import credentials, firestore
 from sqlalchemy.ext.asyncio import AsyncSession
 from google.cloud.firestore import ArrayUnion
@@ -34,6 +35,12 @@ def verify_api_key(api_key: str = Header(...)):
     return api_key
 
 
+@app.post("/store_json/")
+async def store_json_endpoint(payload: models.JsonInput, db: AsyncSession = Depends(get_db), api_key: str = Depends(verify_api_key)):
+    stored_data = await crud.create_json(db, payload.data)
+    return {"message": "Data stored successfully", "stored_data_id": stored_data.id}
+
+
 @app.post("/{server_id}/{thread_id}/")
 async def push_data_to_firebase(data: dict, api_key: str = Depends(verify_api_key)):
     if not data:
@@ -64,5 +71,5 @@ async def push_data_to_firebase(data: dict, api_key: str = Depends(verify_api_ke
 async def get_next_available_json(server_id: int, thread_id: int, db: AsyncSession = Depends(get_db), api_key: str = Depends(verify_api_key)):
     json_data = await crud.get_next_unlocked_json(db)
     if not json_data:
-        raise HTTPException(status_code=404, detail="No available JSON data.")
+        return Response(status_code=204)
     return json_data
