@@ -16,7 +16,8 @@ If not, you can install them using your package manager. For example, on Ubuntu:
 
 sudo apt-get install git python3 pip python3-virtualenv
 ```
-Getting Started
+Getting Started  
+
 1. Clone the Repository
 
 To clone the repository and navigate into the directory:
@@ -48,6 +49,7 @@ source venv/bin/activate
 4. Install Dependencies
 
 Install all required packages:
+[Pre-install Instructions](pre_install.md)
 
 ```bash
 
