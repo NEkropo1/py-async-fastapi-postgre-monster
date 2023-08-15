@@ -75,8 +75,8 @@ def create_json(doc_ref: DocumentReference, constraints: dict, current_worker_id
     new_doc_data = None
     try:
         new_doc_data = {
-            "id": doc_ref.id,
-            "gender": account.gender,
+            "ID": doc_ref.id,
+            "GENDER": account.gender,
             "first_name": account.first_name,
             "last_name": account.last_name,
             "login": account.login,

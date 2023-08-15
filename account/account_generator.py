@@ -4,6 +4,7 @@ import calendar
 
 from random import randrange
 from datetime import date, timedelta
+from typing import Union
 
 
 from password_generator import PasswordGenerator
@@ -22,7 +23,7 @@ class Account:
             self,
             gender: str = "female",
             locale: str = "en_US",
-            years: list | None = None,
+            years: Union[list, None] = None,
             sms_api_code: str = "",
             proxy_host: str = "",
             proxy_pass: str = "",
@@ -88,7 +89,7 @@ class Account:
         password.maxlen = max_range
         return password.generate()
 
-    def set_random_birthdate(self, years: list | None = None) -> None:
+    def set_random_birthdate(self, years: Union[list, None] = None) -> None:
         today = date.today()
         start_year = today.year - 66
         last_year = today.year - 18

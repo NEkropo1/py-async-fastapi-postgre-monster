@@ -72,3 +72,8 @@ async def get_next_available_json(server_id: int, thread_id: int, db: AsyncSessi
     if not json_data:
         return Response(status_code=204)
     return json_data
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)
