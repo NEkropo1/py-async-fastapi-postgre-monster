@@ -86,7 +86,7 @@ If you encounter a permission error, make the script executable with:
 
 chmod +x setup.sh
 ```
-7. If you don't know how to work with firebase, you should dive into [official firebase docs](https://firebase.google.com/docs). 
+7. If you don't know how to work with firebase, you should dive into [official firebase docs](https://firebase.google.com/docs).  
 Because you need to create connecting creds as `creds.json` to correctly run the program.
 
 8. Run the Application
