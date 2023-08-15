@@ -23,6 +23,10 @@ GRANT ALL PRIVILEGES ON DATABASE $postgre_db TO $postgre_user;
 \q
 EOF
 
+# Run Alembic migrations
+echo "Running Alembic database migrations..."
+alembic upgrade head
+
 # Run your Python scripts
 echo "Running Python scripts..."
 python3 firebase_worker.py &
