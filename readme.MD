@@ -48,8 +48,8 @@ source venv/bin/activate
 ```
 4. Install Dependencies
 
-Install all required packages:
-[Pre-install Instructions](pre_install.md)
+Install all required packages:  
+[Pre-install Instructions](pre_install_readme.md)
 
 ```bash
 
