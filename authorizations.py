@@ -11,7 +11,7 @@ from serializers import ConstraintsSerializer
 from dotenv import load_dotenv
 
 CURRENT_FILE_LOCATION = os.path.dirname(os.path.abspath(__file__))
-cred = credentials.Certificate(os.path.join(CURRENT_FILE_LOCATION, "antycode-3f8e262dd0a7.json"))
+cred = credentials.Certificate(os.path.join(CURRENT_FILE_LOCATION, "creds.json"))
 load_dotenv()
 
 

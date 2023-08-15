@@ -6,7 +6,7 @@ from firebase_admin import firestore
 
 
 def start_app() -> Tuple[firestore.client, dict]:
-    cred = credentials.Certificate("antycode-3f8e262dd0a7.json")
+    cred = credentials.Certificate("creds.json")
     firebase_admin.initialize_app(cred)
 
     # Get a reference to the Firestore database
