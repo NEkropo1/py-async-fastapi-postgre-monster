@@ -1,4 +1,4 @@
-Project Name
+FireSyncHub
 
 A brief description of what this project does and who it's for.
 Prerequisites
@@ -86,7 +86,10 @@ If you encounter a permission error, make the script executable with:
 
 chmod +x setup.sh
 ```
-7. Run the Application
+7. If you don't know how to work with firebase, you should dive into [official firebase docs](https://firebase.google.com/docs)
+Because you need to create connecting creds as `creds.json` to correctly run the program.
+
+8. Run the Application
 
 If you've completed the setup with setup.sh, the application should already be running. If you need to run it again in the future:
 Manually
