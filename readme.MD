@@ -1,6 +1,6 @@
 FireSyncHub
 
-A brief description of what this project does and who it's for.
+It's mostly in the name. Project handles connection to Firebase, creates listener, wait for data format and creates fake data in needed json format, as seen in authorizations.  
 Prerequisites
 
 Ensure you have the following installed on your Linux machine:
@@ -67,12 +67,13 @@ nano .env
 ```
 .ini File
 
-If your project uses an .ini configuration file, copy the provided .ini.sample and rename it to your desired .ini file name. Edit the .ini file and fill in the necessary configurations:
+Since there's secret data and some weird dependencies on our alembic.ini, I simplified it, creating sample, of how it might look like
+All you need is copy paste and add reveland to your dependencies data:
 
 ```bash
 
-cp .ini.sample your_project.ini
-nano your_project.ini
+cp alembic.ini.template alembic.ini
+nano alembic.ini
 ```
 6. Initial Setup
 
