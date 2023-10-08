@@ -24,7 +24,7 @@ To clone the repository and navigate into the directory:
 
 ```bash
 
-git clone https://github.com/YOUR_USERNAME/YOUR_PROJECT_NAME.git
+git clone https://github.com/NEkropo1/py-async-fastapi-postgre-monster
 cd YOUR_PROJECT_NAME
 ```
 Replace YOUR_USERNAME and YOUR_PROJECT_NAME with appropriate values.
